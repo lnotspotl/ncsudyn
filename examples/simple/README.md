@@ -15,3 +15,7 @@
 ![starship](https://github.com/user-attachments/assets/703c9a7e-caa4-4298-a77c-ce2fdb5b5885)
 
 #### Quadruped
+
+
+### References
+**[1]** [A low cost modular actuator for dynamic robots](https://dspace.mit.edu/handle/1721.1/118671)
