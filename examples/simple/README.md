@@ -11,7 +11,13 @@
 
 #### Double Pendulum
 
+![doublependulum](https://github.com/user-attachments/assets/6d5cea9b-7d3c-4c37-a3f9-3f1a52e30b8c)
+
+
 #### Cartpole
+
+![cartpole](https://github.com/user-attachments/assets/1d4e7463-43ef-4cc6-85c8-99feb482f314)
+
 
 #### Starship 
 
