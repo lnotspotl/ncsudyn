@@ -2,6 +2,9 @@
 
 #### Double Integrator
 
+![doubleintegrator](https://github.com/user-attachments/assets/382ab623-5b79-4b3e-a5df-2dad22ace01c)
+
+
 #### Simple Pendulum
 
 ![pendulum](https://github.com/user-attachments/assets/9d3ac428-acec-4bc2-a0b7-653df5ca1416)
