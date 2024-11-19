@@ -14,6 +14,10 @@ class Cost(ABC):
         raise NotImplementedError()
 
 
+class IntermediateCost(Cost):
+    pass
+
+
 class EventCost(Cost):
     @abstractmethod
     def get_event_times(self) -> List[float]:

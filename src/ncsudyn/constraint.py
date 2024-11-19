@@ -14,6 +14,10 @@ class Constraint(ABC):
         raise NotImplementedError()
 
 
+class IntermediateConstraint(Constraint):
+    pass
+
+
 class EventConstraint(Constraint):
     @abstractmethod
     def get_event_times(self) -> List[float]:
