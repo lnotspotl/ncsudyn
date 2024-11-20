@@ -39,14 +39,14 @@ class StandardIntegrator(Integrator):
         self.dynamics = dynamics
 
     def _integrate_euler(self, q, v, u, dt):
-        v_dot = self.dynamics(q, v, u)
+        v_dot = self.dynamics.get_value(q, v, u)
         q_new = q + v * dt
         v_new = v + v_dot * dt
         return q_new, v_new
 
     def _integrate_rk4(self, q, v, u, dt):
         def dynamics(q, v, u):
-            return (v, self.dynamics(q, v, u))
+            return (v, self.dynamics.get_value(q, v, u))
 
         k1 = dynamics(q, v, u)
         k2 = dynamics(q + 0.5 * k1[0] * dt, v + 0.5 * k1[1] * dt, u)
@@ -73,7 +73,7 @@ class PinocchioIntegrator(Integrator):
 
     def _integrate_rk4(self, q, v, u, dt):
         def dynamics(q, v, u):
-            return (v, self.dynamics(q, v, u))
+            return (v, self.dynamics.get_value(q, v, u))
 
         k1 = dynamics(q, v, u)
         k2 = dynamics(pinocchio.integrate(self.model, q, 0.5 * k1[0] * dt), v + 0.5 * k1[1] * dt, u)

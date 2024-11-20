@@ -343,7 +343,7 @@ get_next_state = ca.Function("get_next_state", [q, v, u], [q_next, v_next])
 
 opti = ca.Opti()
 
-N = 100
+N = 200
 
 Q = opti.variable(nq, N)
 V = opti.variable(nv, N)

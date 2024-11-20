@@ -23,6 +23,14 @@ class EventCost(Cost):
     def get_event_times(self) -> List[float]:
         raise NotImplementedError()
 
+    def is_active(self, time):
+        return time in self.get_event_times()
+
 
 class FinalCost(Cost):
-    pass
+    def is_active(self, time):
+        return True
+    
+    @abstractmethod
+    def get_value(self, Qs, Vs, time, dt, idx) -> float:
+        raise NotImplementedError()
