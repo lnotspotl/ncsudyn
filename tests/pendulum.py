@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 
-import ncsudyn
 import casadi
 import matplotlib.pyplot as plt
 import numpy as np
-from IPython.display import HTML, display
 from matplotlib.animation import FuncAnimation
+
+import ncsudyn
 
 
 class PendulumDynamics(ncsudyn.dynamics.Dynamics):
-
     def __init__(self, m, l, g):
         self.m = m
         self.l = l
@@ -25,42 +24,36 @@ class PendulumDynamics(ncsudyn.dynamics.Dynamics):
 
     def get_value(self, q, v, u):
         return self.aba_fn(q, v, u)
-    
+
+
 class PendulumCost(ncsudyn.cost.IntermediateCost):
     def is_active(self, time):
         return True
-    
+
     def get_value(self, Qs, Vs, Us, time, dt, idx):
         q = Qs[:, idx]
         v = Vs[:, idx]
         u = Us[:, idx]
-        return casadi.sumsqr(q - np.pi) + casadi.sumsqr(v) + 120.1 *casadi.sumsqr(u)
+        return casadi.sumsqr(q - np.pi) + casadi.sumsqr(v) + 120.1 * casadi.sumsqr(u)
 
 
 class PendulumInitialConstraint(ncsudyn.constraint.InitialConstraint):
     def get_value(self, Qs, Vs, Us, time, dt, idx):
-        return [
-            Qs[:, idx] == 0,
-            Vs[:, idx] == 0
-        ]
-    
+        return [Qs[:, idx] == 0, Vs[:, idx] == 0]
+
+
 class PendulumFinalConstraint(ncsudyn.constraint.FinalConstraint):
     def get_value(self, Qs, Vs, time, dt, idx):
-        return [
-            Qs[:, idx] == np.pi,
-            Vs[:, idx] == 0
-        ]
-    
+        return [Qs[:, idx] == np.pi, Vs[:, idx] == 0]
+
+
 class PendulumControlConstraint(ncsudyn.constraint.IntermediateConstraint):
     def is_active(self, time):
         return True
-    
+
     def get_value(self, Qs, Vs, Us, time, dt, idx):
         limit = 3
-        return [
-            Us[:, idx] <= limit,
-            Us[:, idx] >= -limit
-        ]
+        return [Us[:, idx] <= limit, Us[:, idx] >= -limit]
 
 
 m, l, g = 1, 1, 9.8
@@ -76,7 +69,6 @@ optimizer.add_final_constraint(PendulumFinalConstraint())
 
 trajectory = optimizer.optimize()
 
-import matplotlib.pyplot as plt
 
 fig = plt.figure(figsize=(5, 5), constrained_layout=False)
 
@@ -92,6 +84,7 @@ ax1.set_ylim(-2, 2)
 ax1.set_aspect(1)
 
 time_text = ax1.text(0.05, 0.9, "", transform=ax1.transAxes)
+
 
 def update(i):
     q = trajectory.Q_traj[i]

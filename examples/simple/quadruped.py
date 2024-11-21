@@ -57,7 +57,7 @@ def euler_integrate(q, v, u, dt):
     phi_next = phi + omega * dt
 
     theta1, theta2, theta3, theta4 = q[3], q[4], q[5], q[6]
-    dtheta1, dtheta2, dtheta3, dtheta4 = u[3], u[4], u[5], u[6]
+    dtheta1, dtheta2, dtheta3, dtheta4 = u[4], u[5], u[6], u[7]
 
     theta1_next = theta1 + dtheta1 * dt
     theta2_next = theta2 + dtheta2 * dt
