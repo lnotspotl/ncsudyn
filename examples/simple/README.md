@@ -30,6 +30,11 @@
 
 #### Quadruped
 
+![quadruped_1](https://github.com/user-attachments/assets/dcd13fd0-a67f-4613-ac26-4128aa2759c5)
+
+![quadruped_4](https://github.com/user-attachments/assets/e88e0119-fba7-4857-aaa5-e84aa2060de4)
+
+![quadruped_5](https://github.com/user-attachments/assets/ab9b15ed-9d9b-421b-9c63-57c07ee68f32)
 
 ### References
 **[1]** [A low cost modular actuator for dynamic robots](https://dspace.mit.edu/handle/1721.1/118671)
