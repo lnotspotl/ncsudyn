@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import json
 from dataclasses import dataclass
 
 import casadi
@@ -18,6 +19,33 @@ class Trajectory:
         self.V_traj = V_traj
         self.U_traj = U_traj
         self.time_traj = time_traj
+
+    def serialize(self):
+        return {
+            "Q_traj": self.Q_traj.tolist(),
+            "V_traj": self.V_traj.tolist(),
+            "U_traj": self.U_traj.tolist(),
+            "time_traj": self.time_traj.tolist(),
+        }
+
+    def to_file(self, filename):
+        with open(filename, "w") as f:
+            json.dump(self.serialize(), f, indent=4)
+
+    @classmethod
+    def from_file(cls, filename):
+        with open(filename, "r") as f:
+            serialized = json.load(f)
+        return cls.deserialize(serialized)
+
+    @classmethod
+    def deserialize(self, serialized):
+        return Trajectory(
+            Q_traj=np.array(serialized["Q_traj"]),
+            V_traj=np.array(serialized["V_traj"]),
+            U_traj=np.array(serialized["U_traj"]),
+            time_traj=np.array(serialized["time_traj"]),
+        )
 
 
 @dataclass
