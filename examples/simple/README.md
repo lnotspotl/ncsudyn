@@ -36,6 +36,11 @@
 
 ![quadruped_5](https://github.com/user-attachments/assets/ab9b15ed-9d9b-421b-9c63-57c07ee68f32)
 
+#### Rhea
+
+![rhea](https://github.com/user-attachments/assets/3cfd2f1a-4537-4578-87a5-48754a4b78dd)
+
+
 ### References
 **[1]** [A low cost modular actuator for dynamic robots](https://dspace.mit.edu/handle/1721.1/118671)
 
