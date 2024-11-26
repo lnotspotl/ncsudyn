@@ -19,7 +19,7 @@ def get_double_pendulum_urdf():
 
 
 def get_double_pendulum_model(root_joint=None):
-    return robot_descriptions.loaders.pinocchio.load_robot_model("double_pendulum_description", root_joint=root_joint)
+    return robot_descriptions.loaders.pinocchio.load_robot_description("double_pendulum_description", root_joint=root_joint)
 
 
 def get_anymal_c_urdf():
@@ -34,7 +34,7 @@ def get_anymal_c_urdf():
 
 
 def get_anymal_c_model(root_joint=None):
-    return robot_descriptions.loaders.pinocchio.load_robot_model("anymal_c_description", root_joint=root_joint)
+    return robot_descriptions.loaders.pinocchio.load_robot_description("anymal_c_description", root_joint=root_joint)
 
 
 def get_rhea_urdf():
@@ -49,7 +49,7 @@ def get_rhea_urdf():
 
 
 def get_rhea_model(root_joint=None):
-    return robot_descriptions.loaders.pinocchio.load_robot_model("rhea_description", root_joint=root_joint)
+    return robot_descriptions.loaders.pinocchio.load_robot_description("rhea_description", root_joint=root_joint)
 
 
 def get_quadrotor_urdf():
