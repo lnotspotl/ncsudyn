@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from abc import abstractmethod
+import bisect
 
 
 class Interpolator:
@@ -20,15 +21,12 @@ class LinearInterpolator(Interpolator):
             return value_list[0]
 
         # If time is after the last point, return the last point
-        elif t >= t_list[-1]:
+        if t >= t_list[-1]:
             return value_list[-1]
 
         # Otherwise, find the two points in time and interpolate
         ret = None
-        for i in range(len(t_list) - 1):
-            if t_list[i] <= t <= t_list[i + 1]:
-                # Linear interpolation between the two points
-                alpha = (t - t_list[i]) / (t_list[i + 1] - t_list[i])
-                ret = value_list[i] + alpha * (value_list[i + 1] - value_list[i])
-                break
+        idx = bisect.bisect_left(t_list, t)
+        alpha = (t - t_list[idx - 1]) / (t_list[idx] - t_list[idx - 1])
+        ret = value_list[idx - 1] + alpha * (value_list[idx] - value_list[idx - 1])
         return ret
