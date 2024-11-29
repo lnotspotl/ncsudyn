@@ -1,6 +1,13 @@
 # ncsudyn
 
 
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b672bb79-3590-4b88-ad80-51e8da55c62f" width=350 />
+</p>
+
+### Check out our numerous examples: [simple](https://github.com/lnotspotl/ncsudyn/tree/main/examples/simple) and [pinocchio](https://github.com/lnotspotl/ncsudyn/tree/main/examples/pinocchio)
+
+
 ### Install 
 ```bash
 conda create -n ncsudyn python=3.8.20
