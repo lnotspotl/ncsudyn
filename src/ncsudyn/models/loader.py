@@ -19,7 +19,9 @@ def get_double_pendulum_urdf():
 
 
 def get_double_pendulum_model(root_joint=None):
-    return robot_descriptions.loaders.pinocchio.load_robot_description("double_pendulum_description", root_joint=root_joint)
+    return robot_descriptions.loaders.pinocchio.load_robot_description(
+        "double_pendulum_description", root_joint=root_joint
+    )
 
 
 def get_anymal_c_urdf():

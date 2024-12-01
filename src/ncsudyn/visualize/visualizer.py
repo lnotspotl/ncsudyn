@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 
+import bisect
+
+import meshcat_shapes
 import pinocchio
 
-import meshcat
-import meshcat_shapes
-
-import bisect
 
 def visualize_trajectory(robot, traj, add_past=False, base_link="base_link"):
     assert isinstance(robot, pinocchio.RobotWrapper)
@@ -26,8 +25,7 @@ def visualize_trajectory(robot, traj, add_past=False, base_link="base_link"):
 
     if add_past:
         idx = bisect.bisect_left(traj.time_traj, tt)
-        
-        
+
         for i, q in enumerate(traj.Q_traj.T[:idx, :]):
             frame_handle = f"frame_{i}"
 

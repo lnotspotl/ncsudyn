@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-from abc import abstractmethod
 import bisect
+from abc import abstractmethod
 
 
 class Interpolator:
