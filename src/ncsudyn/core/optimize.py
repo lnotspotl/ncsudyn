@@ -83,7 +83,7 @@ class TrajectoryOptimizer:
 
         ### Time trajectory
         time_trajectory = self.get_time_trajectory()
-        N = len(time_trajectory)
+        N = len(time_trajectory) - 1
 
         opti = self.opti
         ### Setup decision variables
@@ -161,7 +161,7 @@ class TrajectoryOptimizer:
         return self.trajectory
 
     def get_time_trajectory(self):
-        t = list(np.linspace(0, self.options.T, self.options.N))
+        t = list(np.linspace(0, self.options.T, self.options.N+1))
         event_times = []
         for obj in self.event_constraints + self.event_costs:
             event_times.extend(obj.get_event_times())
