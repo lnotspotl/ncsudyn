@@ -1,4 +1,4 @@
-# ncsudyn
+# ncsudyn 🤖
 
 
 <p align="center">
